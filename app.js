@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 const app = express();
 
 dotenv.config();
-const { API_key } = process.env;
+const { API_KEY } = process.env;
 
 app.use(express.json());
 
@@ -24,7 +24,7 @@ app.post("/weather", async (req, res) => {
   const { cityName: city } = req.body;
   let apiResponse;
   let data;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_key}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
   try {
     apiResponse = await fetch(apiUrl);
     data = await apiResponse.json();
